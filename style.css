@@ -1,0 +1,39 @@
+body {
+  background-color: #FEFEFE;
+}
+
+h1 {
+  font-size: 1.5rem; /*1rem = 16px*/
+  padding-top: 0.2rem;
+}
+
+@media (min-width: 768px) {
+  h1 { font-size: 2.5rem; } /*1rem = 16px*/
+}
+
+.sticky-bottom {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.sticky-bottom .card {
+  border-radius: 2rem 2rem 0 0;
+}
+
+.sticky-bottom .card-body {
+  padding: 1rem;
+}
+
+#liste {
+  padding-top: 0.5rem;
+  padding-bottom: 3rem;
+}
+
+.nav-item.active {
+  background-color: lavender;
+}
+.nav-item:hover {
+  background-color: lavender;
+}
