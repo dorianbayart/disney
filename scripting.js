@@ -126,4 +126,18 @@ $(document).ready(function() {
   $( '#filterInputTitle' ).on("change keyup", function() {
     generateList();
   });
+
+  $( '.nav .nav-item' ).on("click", function() {
+    if( ! $( this ).hasClass( "active" ) ) { // if not active
+      // Hiding the active tab
+      var tabToHide =  $( '.nav .active' ).children("a").attr("href");
+      $( '.nav .active' ).removeClass("active");
+      $( tabToHide ).hide();
+      
+      // Showing the clicked tab
+      var tabToShow = $( this ).children("a").attr("href");
+      $( this ).addClass("active");
+      $( tabToShow ).show();
+    }
+  });
 });
