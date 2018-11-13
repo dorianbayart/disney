@@ -26,9 +26,12 @@ h1 {
   padding: 1rem;
 }
 
-#liste {
-  padding-top: 0.5rem;
+.tab-content {
   padding-bottom: 3rem;
+}
+
+.form-liste {
+  padding-top: 0.5rem;
 }
 
 .nav-item.active {
