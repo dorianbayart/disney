@@ -105,8 +105,17 @@ function updateProgressBar() {
   });
 }
 
+// Hide the inactive tabs when document is ready
+// TODO Get the #anchor from the url
+function hideInitialContent() {
+  $( '#question' ).hide();
+  $( '#info' ).hide();
+}
+
 
 $(document).ready(function() {
+	
+  hideInitialContent();
 
   $.getJSON('disney_movies_list.json', function( data ) {
 		var text = $(readJson( data.movies ));
