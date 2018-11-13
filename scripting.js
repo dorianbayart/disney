@@ -111,7 +111,7 @@ $(document).ready(function() {
   $.getJSON('disney_movies_list.json', function( data ) {
 		var text = $(readJson( data.movies ));
     $( '#json' ).hide().html("").append( JSON.stringify(data.movies) );
-		$( '#liste' ).html("").append( text );
+		$( '#form-liste' ).html("").append( text );
 
     var cookie = getCookie("films");
     if ( cookie != "" )
