@@ -57,11 +57,11 @@ function generateList() {
   var jsonParsed = JSON.parse($('#json').text());
   var jsonfilteredByTitle = filterInputTitle!= "" ? filtering( jsonParsed, {title: filterInputTitle}) : jsonParsed;
   var text = $(readJson( jsonfilteredByTitle ));
-  $( '#liste' ).html("").append( text );
+  $( '#form-liste' ).html("").append( text );
 
 
 
-  $('#liste > div').each(function() {
+  $('#form-liste > div').each(function() {
     var id = $(this).find('> #id').text();
     var title = $(this).find('> #title').text();
     var title_en = $(this).find('> #title_en').text();
