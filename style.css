@@ -4,12 +4,16 @@ body {
 
 h1 {
   font-size: 1.5rem; /*1rem = 16px*/
-  padding-top: 0.2rem;
-  padding-bottom: 0.2rem;
+  margin-bottom: 0;
 }
 
 @media (min-width: 768px) {
   h1 { font-size: 2.5rem; } /*1rem = 16px*/
+}
+
+.sticky-top {
+  padding-top: 0.4em;
+  padding-bottom: 0.4em;
 }
 
 .sticky-bottom {
@@ -29,6 +33,20 @@ h1 {
 
 .tab-content {
   padding-bottom: 3rem;
+}
+.tab-content::after { /* Sticky background picture */
+  content: "";
+  background: url(http://thecraftchop.com/files/images/castle-lines.svg);
+  opacity: 0.1;
+  top: 50%;
+  left: 0;
+  bottom: -10%;
+  right: 0;
+  position: fixed;
+  z-index: -1;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position-x: center;
 }
 
 #form-liste {
