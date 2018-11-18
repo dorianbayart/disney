@@ -36,7 +36,7 @@ h1 {
 }
 .tab-content::after { /* Sticky background picture */
   content: "";
-  background: url(http://thecraftchop.com/files/images/castle-lines.svg);
+  background: url(castle-lines.svg);
   opacity: 0.1;
   top: 50%;
   left: 0;
