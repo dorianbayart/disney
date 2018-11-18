@@ -108,13 +108,13 @@ function updateProgressBar() {
 // Hide the inactive tabs when document is ready
 // TODO Get the #anchor from the url
 function hideInitialContent() {
-  $( '#question' ).hide();
-  $( '#info' ).hide();
+  $( '#gestion' ).hide();
+  $( '#configuration' ).hide();
 }
 
 
 $(document).ready(function() {
-	
+
   hideInitialContent();
 
   $.getJSON('disney_movies_list.json', function( data ) {
@@ -142,7 +142,7 @@ $(document).ready(function() {
       var tabToHide =  $( '.nav .active' ).children("a").attr("href");
       $( '.nav .active' ).removeClass("active");
       $( tabToHide ).hide();
-      
+
       // Showing the clicked tab
       var tabToShow = $( this ).children("a").attr("href");
       $( this ).addClass("active");
