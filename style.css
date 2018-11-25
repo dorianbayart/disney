@@ -1,3 +1,4 @@
+/* Generic */
 body {
   background-color: #FEFEFE;
 }
@@ -11,11 +12,14 @@ h1 {
   h1 { font-size: 2.5rem; } /*1rem = 16px*/
 }
 
+/* Sticky top */
 .sticky-top {
   padding-top: 0.4em;
   padding-bottom: 0.4em;
+  border-bottom: gainsboro 1px solid;
 }
 
+/* Sticky bottom */
 .sticky-bottom {
   position: fixed;
   left: 0;
@@ -31,10 +35,19 @@ h1 {
   padding: 1rem;
 }
 
+.nav-item.active {
+  background-color: lavender;
+}
+.nav-item:hover {
+  background-color: lavender;
+}
+
+/* Content */
 .tab-content {
   padding-bottom: 3rem;
 }
-.tab-content::after { /* Sticky background picture */
+/* Background (after tab-content) */
+.background { /* Sticky background picture */
   content: "";
   background: url(castle-lines.svg);
   opacity: 0.1;
@@ -49,13 +62,25 @@ h1 {
   background-position-x: center;
 }
 
+/* List */
+.input-group {
+  margin-top: 0.1em;
+}
+
 #form-liste {
   padding-top: 0.5rem;
 }
 
-.nav-item.active {
-  background-color: lavender;
+.numero {
+  width: 2.2em;
+  font-size: small;
+  display: inline-block;
+  text-align: center;
 }
-.nav-item:hover {
-  background-color: lavender;
+.date {
+  font-size: small;
+  display: inline-block;
+  margin-left: 0.4em;
 }
+
+/* Parameters */
