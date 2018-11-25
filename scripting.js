@@ -21,9 +21,11 @@ function readJson( data ) {
 /* Generic filtering */
 function filtering(data, criteria){
   data = data.filter(function(obj) {
-    return Object.keys(criteria).every(function(c) {
-      return obj[c].toLowerCase().includes(criteria[c].toLowerCase());
+    let t = false;
+    Object.entries(criteria).forEach(([c, valeur]) => {
+      if ((''+obj[c]).toLowerCase().includes(valeur.toLowerCase())) t = true;
     });
+    return t;
   });
 	return data;
 }
@@ -51,11 +53,25 @@ function getCookie(cname) {
     return "";
 }
 
+function stringToDate(_date,_format,_delimiter)
+{
+  var formatLowerCase=_format.toLowerCase();
+  var formatItems=formatLowerCase.split(_delimiter);
+  var dateItems=_date.split(_delimiter);
+  var monthIndex=formatItems.indexOf("mm");
+  var dayIndex=formatItems.indexOf("dd");
+  var yearIndex=formatItems.indexOf("yyyy");
+  var month=parseInt(dateItems[monthIndex]);
+  month -= 1;
+  var formatedDate = new Date(dateItems[yearIndex],month,dateItems[dayIndex]);
+  return formatedDate;
+}
+
 
 function generateList() {
-  var filterInputTitle = $( '#filterInputTitle' ).val();
+  var filteringInput = $( '#filteringInput' ).val();
   var jsonParsed = JSON.parse($('#json').text());
-  var jsonfilteredByTitle = filterInputTitle!= "" ? filtering( jsonParsed, {title: filterInputTitle}) : jsonParsed;
+  var jsonfilteredByTitle = filtering( jsonParsed, {id: filteringInput, title: filteringInput, date: filteringInput});
   var text = $(readJson( jsonfilteredByTitle ));
   $( '#form-liste' ).html("").append( text );
 
@@ -66,20 +82,23 @@ function generateList() {
     var title = $(this).find('> #title').text();
     var title_en = $(this).find('> #title_en').text();
     var date = $(this).find('> #date').text();
+    var dateObj = stringToDate(date, 'dd/mm/yyyy', '/');
+    var dateOptions = { year: 'numeric'/*, month: '2-digit', day: '2-digit' */};
+    date = dateObj.toLocaleDateString("fr-FR", dateOptions);
     if(films.includes(id)) {
-      $(this).html('<div class="form-check"><input class="form-check-input" type="checkbox" value="" id='+id+' checked><label class="form-check-label" for='+id+'>'+title+'</label></div>');
+      $(this).html('<div class="form-check liste-check"><input class="form-check-input liste-check-input" type="checkbox" value="" id='+id+' checked><label class="form-check-label" for='+id+'><span class="numero">'+id+'. </span>'+title+'<span class="date"> ('+date+')</span></label></div>');
     } else {
-      $(this).html('<div class="form-check"><input class="form-check-input" type="checkbox" value="" id='+id+'><label class="form-check-label" for='+id+'>'+title+'</label></div>');
+      $(this).html('<div class="form-check liste-check"><input class="form-check-input liste-check-input" type="checkbox" value="" id='+id+'><label class="form-check-label" for='+id+'><span class="numero">'+id+'. </span>'+title+'<span class="date"> ('+date+')</span></label></div>');
     }
 
   });
 
-  addEvents();
+  addEventsToList();
 }
 
 
-function addEvents() {
-  $('.form-check .form-check-input').on('change',function(){
+function addEventsToList() {
+  $('.liste-check .liste-check-input').on('change',function(){
     var _val = $(this).is(':checked') ? true : false;
     var id = $(this)[0].id;
     if(_val && !films.includes(id)) {
@@ -97,6 +116,80 @@ function addEvents() {
   });
 }
 
+function addEvents() {
+  // Parameters
+  $('#displayFilters').on('change',function(){
+    if($('#displayFilters:checked').length == 0)
+      $('#filterInput').hide();
+    else
+      $('#filterInput').show();
+  });
+  if($('#displayFilters:checked').length == 0)
+    $('#filterInput').hide();
+  else
+    $('#filterInput').show();
+
+  $('#displayBar').on('change',function(){
+    if($('#displayBar:checked').length == 0)
+      $('#progressTooltip').hide();
+    else
+      $('#progressTooltip').show();
+  });
+  if($('#displayBar:checked').length == 0)
+    $('#progressTooltip').hide();
+  else
+    $('#progressTooltip').show();
+
+  $('#displayNumero').on('change',function(){
+    if($('#displayNumero:checked').length == 0)
+      $('.numero').hide();
+    else
+      $('.numero').show();
+  });
+  if($('#displayNumero:checked').length == 0)
+    $('.numero').hide();
+  else
+    $('.numero').show();
+
+  $('#displayDate').on('change',function(){
+    if($('#displayDate:checked').length == 0)
+      $('.date').hide();
+    else
+      $('.date').show();
+  });
+  if($('#displayDate:checked').length == 0)
+    $('.date').hide();
+  else
+    $('.date').show();
+
+  $('#backgroundPicture').on('change',function(){
+    if($('#backgroundPicture:checked').length == 0)
+      $('.background').hide();
+    else
+      $('.background').show();
+  });
+
+  // Filtering
+  $( '#filteringInput' ).on("change keyup", function() {
+    generateList();
+  });
+
+  // Navbar
+  $( '.nav .nav-item' ).on("click", function() {
+    if( ! $( this ).hasClass( "active" ) ) { // if not active
+      // Hiding the active tab
+      var tabToHide =  $( '.nav .active' ).children("a").attr("href");
+      $( '.nav .active' ).removeClass("active");
+      $( tabToHide ).hide();
+
+      // Showing the clicked tab
+      var tabToShow = $( this ).children("a").attr("href");
+      $( this ).addClass("active");
+      $( tabToShow ).show();
+    }
+  });
+}
+
 function updateProgressBar() {
   var percent = Math.round( films.length / nombre_de_films * 100. );
   $('#progressbar').attr({
@@ -110,6 +203,14 @@ function updateProgressBar() {
 function hideInitialContent() {
   $( '#gestion' ).hide();
   $( '#configuration' ).hide();
+}
+
+function addBackground() {
+  $( '.tab-content' ).after( '<div class="background"></div>' );
+  if($('#backgroundPicture:checked').length == 0)
+    $('.background').hide();
+  else
+    $('.background').show();
 }
 
 
@@ -130,23 +231,9 @@ $(document).ready(function() {
 
     generateList();
     updateProgressBar();
+    addBackground();
   });
 
-  $( '#filterInputTitle' ).on("change keyup", function() {
-    generateList();
-  });
+  addEvents();
 
-  $( '.nav .nav-item' ).on("click", function() {
-    if( ! $( this ).hasClass( "active" ) ) { // if not active
-      // Hiding the active tab
-      var tabToHide =  $( '.nav .active' ).children("a").attr("href");
-      $( '.nav .active' ).removeClass("active");
-      $( tabToHide ).hide();
-
-      // Showing the clicked tab
-      var tabToShow = $( this ).children("a").attr("href");
-      $( this ).addClass("active");
-      $( tabToShow ).show();
-    }
-  });
 });
