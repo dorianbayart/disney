@@ -32,19 +32,18 @@
 
 					<pre id="json"></pre>
 
-					<div id="progressTooltip" class="progress mt-2 mb-2">
+					<div id="progressTooltip" class="progress mt-2">
 						<div id="progressbar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
 					</div>
 
-					<form class="form-inline">
-						<label class="sr-only" for="filterInputTitle">Rechercher par titre</label>
+					<form id="filterInput" class="form-inline mt-2">
+            <label class="sr-only" for="filteringInput">Rechercher par numéro, titre, date</label>
 						<div class="input-group mr-sm-2">
 							<div class="input-group-prepend">
 								<div class="input-group-text"><i class="fas fa-search"></i></div>
 							</div>
-							<input type="text" class="form-control form-control-sm" id="filterInputTitle" placeholder="Rechercher par titre">
+							<input type="text" class="form-control form-control-sm" id="filteringInput" placeholder="Rechercher par numéro, titre, date">
 						</div>
-
 					</form>
 				</div>
 			</div>
@@ -80,7 +79,7 @@
 			</div>
 
 			<div class="container">
-				<h2>Explications</h2>
+				<h2></h2>
 			</div>
 
 		</div>
@@ -96,7 +95,38 @@
 			</div>
 
 			<div class="container">
-				<h2>Pourquoi ?</h2>
+        <form class="form-parameters pt-2">
+
+          <label class="sr-only" for="displayFilters">Afficher la recherche</label>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="displayFilters">
+            <label class="form-check-label" for="displayFilters">Afficher la recherche</label>
+          </div>
+
+          <label class="sr-only" for="displayBar">Afficher la barre de progression</label>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="displayBar">
+            <label class="form-check-label" for="displayBar">Afficher la barre de progression</label>
+          </div>
+
+          <label class="sr-only" for="displayNumero">Afficher les numéros de films</label>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="displayNumero">
+            <label class="form-check-label" for="displayNumero">Afficher les numéros de films</label>
+          </div>
+
+          <label class="sr-only" for="displayDate">Afficher les dates de sortie</label>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="displayDate">
+            <label class="form-check-label" for="displayDate">Afficher les dates de sortie</label>
+          </div>
+
+          <label class="sr-only" for="backgroundPicture">Image en fond d'écran</label>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="backgroundPicture">
+            <label class="form-check-label" for="backgroundPicture">Image en fond d'écran</label>
+          </div>
+        </form>
 			</div>
 
 		</div>
