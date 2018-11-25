@@ -6,16 +6,16 @@ var nombre_de_films = 0;
 
 /* Generic reader */
 function readJson( data ) {
-	var text = "";
-	$.each( data, function( key, val ) {
-		if (typeof val == 'object') {
-			text += "<div class='" + key + "'>" + readJson(val) + "</div>";
-		} else {
-			if ( val !== null && val != "" )
-				text += "<span id='" + key + "'>" + val + "</span>";
-		}
-	});
-	return text;
+  var text = "";
+  $.each( data, function( key, val ) {
+    if (typeof val == 'object') {
+      text += "<div class='" + key + "'>" + readJson(val) + "</div>";
+    } else {
+      if ( val !== null && val != "" )
+      text += "<span id='" + key + "'>" + val + "</span>";
+    }
+  });
+  return text;
 }
 
 /* Generic filtering */
@@ -27,33 +27,33 @@ function filtering(data, criteria){
     });
     return t;
   });
-	return data;
+  return data;
 }
 
 function setCookie(cname, cvalue) {
-    var d = new Date();
-    d.setTime(d.getTime() + (cookieDays*24*60*60*1000));
-    var expires = "expires="+ d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  var d = new Date();
+  d.setTime(d.getTime() + (cookieDays*24*60*60*1000));
+  var expires = "expires="+ d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
 
 function getCookie(cname) {
-    var name = cname + "=";
-    var decodedCookie = decodeURIComponent(document.cookie);
-    var ca = decodedCookie.split(';');
-    for(var i = 0; i <ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0) == ' ') {
-            c = c.substring(1);
-        }
-        if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
-        }
+  var name = cname + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');
+  for(var i = 0; i <ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
     }
-    return "";
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
 }
 
-function stringToDate(_date,_format,_delimiter)
+function stringToDate(_date, _format, _delimiter)
 {
   var formatLowerCase=_format.toLowerCase();
   var formatItems=formatLowerCase.split(_delimiter);
@@ -115,59 +115,61 @@ function addEventsToList() {
 
     updateProgressBar();
   });
+
+  if($('#displayNumero:checked').length == 0)
+  $('.numero').hide();
+  else
+  $('.numero').show();
+
+  if($('#displayDate:checked').length == 0)
+  $('.date').hide();
+  else
+  $('.date').show();
 }
 
 function addEvents() {
   // Parameters
   $('#displayFilters').on('change',function(){
     if($('#displayFilters:checked').length == 0)
-      $('#filterInput').hide();
+    $('#filterInput').hide();
     else
-      $('#filterInput').show();
+    $('#filterInput').show();
   });
   if($('#displayFilters:checked').length == 0)
-    $('#filterInput').hide();
+  $('#filterInput').hide();
   else
-    $('#filterInput').show();
+  $('#filterInput').show();
 
   $('#displayBar').on('change',function(){
     if($('#displayBar:checked').length == 0)
-      $('#progressTooltip').hide();
+    $('#progressTooltip').hide();
     else
-      $('#progressTooltip').show();
+    $('#progressTooltip').show();
   });
   if($('#displayBar:checked').length == 0)
-    $('#progressTooltip').hide();
+  $('#progressTooltip').hide();
   else
-    $('#progressTooltip').show();
+  $('#progressTooltip').show();
 
   $('#displayNumero').on('change',function(){
     if($('#displayNumero:checked').length == 0)
-      $('.numero').hide();
-    else
-      $('.numero').show();
-  });
-  if($('#displayNumero:checked').length == 0)
     $('.numero').hide();
-  else
+    else
     $('.numero').show();
+  });
 
   $('#displayDate').on('change',function(){
     if($('#displayDate:checked').length == 0)
-      $('.date').hide();
-    else
-      $('.date').show();
-  });
-  if($('#displayDate:checked').length == 0)
     $('.date').hide();
-  else
+    else
     $('.date').show();
+  });
 
   $('#backgroundPicture').on('change',function(){
     if($('#backgroundPicture:checked').length == 0)
-      $('.background').hide();
+    $('.background').hide();
     else
-      $('.background').show();
+    $('.background').show();
   });
 
   // Filtering
@@ -209,9 +211,9 @@ function hideInitialContent() {
 function addBackground() {
   $( '.tab-content' ).after( '<div class="background"></div>' );
   if($('#backgroundPicture:checked').length == 0)
-    $('.background').hide();
+  $('.background').hide();
   else
-    $('.background').show();
+  $('.background').show();
 }
 
 
@@ -220,13 +222,13 @@ $(document).ready(function() {
   hideInitialContent();
 
   $.getJSON('disney_movies_list.json', function( data ) {
-		var text = $(readJson( data.movies ));
+    var text = $(readJson( data.movies ));
     $( '#json' ).hide().html("").append( JSON.stringify(data.movies) );
-		$( '#form-liste' ).html("").append( text );
+    $( '#form-liste' ).html("").append( text );
 
     var cookie = getCookie("films");
     if ( cookie != "" )
-      films = cookie.split(",");
+    films = cookie.split(",");
 
     nombre_de_films = data.movies.length;
 
