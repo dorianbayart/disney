@@ -76,16 +76,15 @@ function generateList() {
   $( '#form-liste' ).html("").append( text );
 
 
-
   $('#form-liste > div').each(function() {
     var id = $(this).find('> #id').text();
     var title = $(this).find('> #title').text();
     var title_en = $(this).find('> #title_en').text();
     var date = $(this).find('> #date').text();
     var dateObj = stringToDate(date, 'dd/mm/yyyy', '/');
-    var dateOptions = { year: 'numeric'/*, month: '2-digit', day: '2-digit' */};
-    //date = dateObj.toLocaleDateString("fr-FR", dateOptions);
-    date = dateObj.getFullYear();
+    //var dateOptions = { year: 'numeric'/*, month: '2-digit', day: '2-digit' */};
+    date = dateObj.toLocaleDateString("fr"/*, dateOptions*/);
+    //date = dateObj.getFullYear();
     if(films.includes(id)) {
       $(this).html('<div class="form-check liste-check"><input class="form-check-input liste-check-input" type="checkbox" value="" id='+id+' checked><label class="form-check-label" for='+id+'><span class="numero">'+id+'. </span>'+title+'<span class="date"> ('+date+')</span></label></div>');
     } else {
@@ -208,6 +207,14 @@ function hideInitialContent() {
   $( '#configuration' ).hide();
 }
 
+function setInitialParameters() {
+  $( '#displayFilters' ).prop('checked', true);
+  $( '#displayBar' ).prop('checked', true);
+  $( '#displayNumero' ).prop('checked', true);
+  $( '#displayDate' ).prop('checked', true);
+  $( '#backgroundPicture' ).prop('checked', true);
+}
+
 function addBackground() {
   $( '.tab-content' ).after( '<div class="background"></div>' );
   if($('#backgroundPicture:checked').length == 0)
@@ -220,6 +227,7 @@ function addBackground() {
 $(document).ready(function() {
 
   hideInitialContent();
+  setInitialParameters();
 
   $.getJSON('disney_movies_list.json', function( data ) {
     var text = $(readJson( data.movies ));
