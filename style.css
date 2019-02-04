@@ -1,6 +1,9 @@
 /* Generic */
 body {
   background-color: #FEFEFE;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
 }
 
 h1 {
