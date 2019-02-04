@@ -25,6 +25,7 @@ h1 {
   padding-top: 4px;
   padding-bottom: 4px;
   border-bottom: gainsboro 1px solid;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1) 8px, #f8f9fa);
 }
 
 /* Sticky bottom */
