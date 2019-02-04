@@ -17,8 +17,8 @@ h1 {
 
 /* Sticky top */
 .sticky-top {
-  padding-top: 0.4em;
-  padding-bottom: 0.4em;
+  padding-top: 24px;
+  padding-bottom: 4px;
   border-bottom: gainsboro 1px solid;
 }
 
