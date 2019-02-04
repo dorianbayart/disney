@@ -4,6 +4,11 @@ body {
   -webkit-user-select: none;
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
+  
+  env(safe-area-inset-top);
+  env(safe-area-inset-right);
+  env(safe-area-inset-bottom);
+  env(safe-area-inset-left);
 }
 
 h1 {
@@ -17,7 +22,7 @@ h1 {
 
 /* Sticky top */
 .sticky-top {
-  padding-top: 24px;
+  padding-top: 4px;
   padding-bottom: 4px;
   border-bottom: gainsboro 1px solid;
 }
