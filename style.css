@@ -112,7 +112,7 @@ h1 {
   #progressTooltip { height: 1rem; }
   #nav-gestion { font-size: 1.5rem; }
   #nav-configuration { font-size: 1.5rem; }
-  #form-list { font-size: 1.2rem; }
+  #form-liste { font-size: 1.2rem; }
   input[type=checkbox] {
     transform: scale(1.5);
     margin-top: 0.5rem;
