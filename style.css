@@ -4,11 +4,6 @@ body {
   -webkit-user-select: none;
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
-  /*padding:
-    env(safe-area-inset-top)
-    env(safe-area-inset-right)
-    env(safe-area-inset-bottom)
-    env(safe-area-inset-left);*/
 }
 
 h1 {
@@ -58,18 +53,9 @@ h1 {
   font-size: 1.1em;
   text-align: right;
   position: fixed;
-  top: 0.4em;
-  right: 1em;
+  top: calc( env(safe-area-inset-top) + 0.4em );
+  right: calc( env(safe-area-inset-right) + 1em );
   padding: 0;
-}
-
-
-.sticky-bottom .card {
-  border-radius: 2rem 2rem 0 0;
-}
-
-.sticky-bottom .card-body {
-  padding: 1rem;
 }
 
 .nav-item.active {
@@ -81,7 +67,7 @@ h1 {
 
 /* Content */
 .tab-content {
-  padding: 0 env(safe-area-inset-right) 3rem env(safe-area-inset-left);
+  padding: 0 env(safe-area-inset-right) calc(env(safe-area-inset-bottom) + 3rem) env(safe-area-inset-left);
 }
 /* Background (after tab-content) */
 .background { /* Sticky background picture */
