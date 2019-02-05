@@ -14,7 +14,7 @@
 	
 	
 	<!-- Progressive Web App -->
-	<meta name="apple-mobile-web-app-title" content="DisneyFilms">
+	<meta name="apple-mobile-web-app-title" content="Disneythèque">
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 	<meta name="mobile-web-app-capable" content="yes" />
@@ -34,7 +34,7 @@
 
 	
 
-	<title>Mes films Disney</title>
+	<title>Ma filmothèque Disney</title>
 	<meta name="Description" content="Gérez facilement votre vidéothèque de films Disney.
 					  Combien en possédez-vous ? Les avez-vous tous vus ?" />
 </head>
@@ -47,7 +47,7 @@
 		<div id="liste">
 			<div class="sticky-top pt-1 pb-1">
 				<div class="container">
-					<h1><i class="fas fa-list pr-3"></i>Liste des films Disney</h1>
+					<h1><i class="fas fa-list pr-3"></i>Filmothèque Disney</h1>
 
 					<pre id="json"></pre>
 
@@ -56,12 +56,12 @@
 					</div>
 
 					<form id="filterInput" class="form-inline mt-1">
-            <label class="sr-only" for="filteringInput">Rechercher par numéro, titre, date</label>
+            <label class="sr-only" for="filteringInput">Filtrer</label>
 						<div class="input-group mr-sm-2">
 							<div class="input-group-prepend">
 								<div class="input-group-text"><i class="fas fa-search"></i></div>
 							</div>
-							<input type="text" class="form-control form-control-sm" id="filteringInput" placeholder="Rechercher par numéro, titre, date">
+							<input type="text" class="form-control form-control-sm" id="filteringInput" placeholder="Filtrer">
 						</div>
 					</form>
 				</div>
@@ -160,13 +160,13 @@
 	<div class="sticky-bottom">
 		<ul class="nav nav-justified bg-light">
 			<li class="nav-item active">
-				<span class="nav-link" href="#liste"><i class="far fa-list-alt fa-lg"></i><span class="d-none d-sm-inline-block pl-2">Liste</span></span>
+				<span id="nav-liste" class="nav-link" href="#liste"><i class="far fa-list-alt fa-lg"></i><span class="d-none d-sm-inline-block pl-2">Liste</span></span>
 			</li>
 			<li class="nav-item">
-				<span class="nav-link" href="#gestion"><i class="far fa-share-square fa-lg"></i><span class="d-none d-sm-inline-block pl-2">Gestion</span></span>
+				<span id="nav-gestion" class="nav-link" href="#gestion"><i class="far fa-share-square fa-lg"></i><span class="d-none d-sm-inline-block pl-2">Gestion</span></span>
 			</li>
 			<li class="nav-item">
-				<span class="nav-link" href="#configuration"><i class="fas fa-cogs fa-lg"></i><span class="d-none d-sm-inline-block pl-2">Configuration</span></span>
+				<span id="nav-configuration" class="nav-link" href="#configuration"><i class="fas fa-cogs fa-lg"></i><span class="d-none d-sm-inline-block pl-2">Configuration</span></span>
 			</li>
 		</ul>
 	</div>
