@@ -22,10 +22,13 @@ h1 {
 
 /* Sticky top */
 .sticky-top {
-  padding-top: 20px;
-  padding-bottom: 4px;
   /* border-bottom: gainsboro 1px solid; */
   background-image: linear-gradient(rgba(250, 200, 150, 0.8) -20%, rgba(150,200,250, 0.9));
+  z-index: 1;
+  
+  #progressTooltip {
+    height: 0.5em;
+  }
 }
 
 /* Sticky bottom */
@@ -34,6 +37,16 @@ h1 {
   left: 0;
   bottom: 0;
   width: 100%;
+  z-index: 2;
+  
+  #nav-configuration {
+    font-size: 1.1em;
+    text-align: right;
+    position: fixed;
+    top: 0.4em;
+    right: 1em;
+    padding: 0;
+  }
 }
 
 .sticky-bottom .card {
