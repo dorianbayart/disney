@@ -11,15 +11,9 @@ h1 {
   margin-bottom: 0;
 }
 
-@media (min-width: 768px) {
-  h1 { font-size: 2.5rem; } /*1rem = 16px*/
-  #nav-gestion { font-size: 1.5rem; }
-  #nav-configuration { font-size: 1.5rem; }
-}
-
 /* Sticky top */
 .sticky-top {
-  padding-top: max( env(safe-area-inset-top), 4px );
+  padding-top: calc( env(safe-area-inset-top) + 4px );
   /* border-bottom: gainsboro 1px solid; */
   background-image: linear-gradient(rgba(250, 200, 150, 0.8) -20%, rgba(150,200,250, 0.9));
   z-index: 1;
@@ -109,3 +103,11 @@ h1 {
 }
 
 /* Parameters */
+
+
+/* Big screens */
+@media (min-width: 768px) {
+  h1 { font-size: 2.5rem; } /*1rem = 16px*/
+  #nav-gestion { font-size: 1.5rem; }
+  #nav-configuration { font-size: 1.5rem; }
+}
