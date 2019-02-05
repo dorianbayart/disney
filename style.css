@@ -13,11 +13,13 @@ h1 {
 
 @media (min-width: 768px) {
   h1 { font-size: 2.5rem; } /*1rem = 16px*/
+  #nav-gestion { font-size: 1.5rem; }
+  #nav-configuration { font-size: 1.5rem; }
 }
 
 /* Sticky top */
 .sticky-top {
-  padding-top: env(safe-area-inset-top);
+  padding-top: max( env(safe-area-inset-top), 4px );
   /* border-bottom: gainsboro 1px solid; */
   background-image: linear-gradient(rgba(250, 200, 150, 0.8) -20%, rgba(150,200,250, 0.9));
   z-index: 1;
@@ -42,7 +44,7 @@ h1 {
   right: 1em;
   border-radius: 5em;
   border: 2px solid;
-  padding: 1em;
+  padding: 1rem;
   border-style: outset;
   background-color: rgb(150, 200, 250, 0.8);
 }
@@ -53,8 +55,8 @@ h1 {
   font-size: 1.1em;
   text-align: right;
   position: fixed;
-  top: calc( env(safe-area-inset-top) + 0.4em );
-  right: calc( env(safe-area-inset-right) + 1em );
+  top: calc( env(safe-area-inset-top) + 0.6rem );
+  right: calc( env(safe-area-inset-right) + 1rem );
   padding: 0;
 }
 
