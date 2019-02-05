@@ -4,11 +4,11 @@ body {
   -webkit-user-select: none;
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
-  padding:
+  /*padding:
     env(safe-area-inset-top)
     env(safe-area-inset-right)
     env(safe-area-inset-bottom)
-    env(safe-area-inset-left);
+    env(safe-area-inset-left);*/
 }
 
 h1 {
@@ -22,6 +22,7 @@ h1 {
 
 /* Sticky top */
 .sticky-top {
+  padding: env(safe-area-inset-top);
   /* border-bottom: gainsboro 1px solid; */
   background-image: linear-gradient(rgba(250, 200, 150, 0.8) -20%, rgba(150,200,250, 0.9));
   z-index: 1;
@@ -33,6 +34,7 @@ h1 {
 
 /* Sticky bottom */
 .sticky-bottom {
+  padding: env(safe-area-inset-bottom);
   position: fixed;
   left: 0;
   bottom: 0;
@@ -79,7 +81,7 @@ h1 {
 
 /* Content */
 .tab-content {
-  padding-bottom: 3rem;
+  padding: 0 env(safe-area-inset-right) 3rem env(safe-area-inset-left);
 }
 /* Background (after tab-content) */
 .background { /* Sticky background picture */
