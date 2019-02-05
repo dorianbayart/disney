@@ -39,7 +39,19 @@ h1 {
   width: 100%;
   z-index: 2;
 }
-
+#nav-gestion {
+  position: absolute;
+  bottom: 1em;
+  right: 1em;
+  border-radius: 5em;
+  border: 2px solid;
+  padding: 1em;
+  border-style: outset;
+  background-color: rgb(150, 200, 250, 0.8);
+}
+#nav-gestion:hover {
+  border-style: inset;
+}
 #nav-configuration {
   font-size: 1.1em;
   text-align: right;
@@ -48,6 +60,7 @@ h1 {
   right: 1em;
   padding: 0;
 }
+
 
 .sticky-bottom .card {
   border-radius: 2rem 2rem 0 0;
