@@ -182,16 +182,16 @@ function addEvents() {
       // Hiding the active tab
       var tabToHide =  $( '.nav .active' ).children("span").attr("href");
       $( '.nav .active' ).removeClass("active");
-      $( tabToHide ).fadeOut();
+      $( tabToHide ).hide();
 
       // Showing the clicked tab
       var tabToShow = $( this ).children("span").attr("href");
       $( this ).addClass("active");
-      $( tabToShow ).fadeIn();
+      $( tabToShow ).show();
       
       // Showing or Hiding the Back-to-list button
       if( $( this ).children("span").attr("id") !== "nav-liste" ) {
-        $( '#nav-liste' ).fadeIn();
+        $( '#nav-liste' ).show(400);
       } else {
         $( '#nav-liste' ).fadeOut();
       }
