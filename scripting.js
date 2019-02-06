@@ -190,7 +190,7 @@ function addEvents() {
       $( tabToShow ).show();
       
       // Showing or Hiding the Back-to-list button
-      if( $( this ).children("span").id !== "nav-liste" ) {
+      if( $( this ).children("span").attr("id") !== "nav-liste" ) {
         $( '#nav-liste' ).show();
       } else {
         $( '#nav-liste' ).hide();
