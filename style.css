@@ -1,3 +1,9 @@
+/* Bootstrap */
+.container {
+  padding-right: calc(env(safe-area-inset-right) + 15px);
+  padding-left: calc(env(safe-area-inset-left) + 15px);
+}
+
 /* Generic */
 body {
   background-color: #FEFEFE;
@@ -14,13 +20,21 @@ h1 {
 /* Sticky top */
 .sticky-top {
   padding-top: calc( env(safe-area-inset-top) + 0.4rem );
-  /* border-bottom: gainsboro 1px solid; */
+  padding-bottom: 0.5rem;
   background-image: linear-gradient(rgba(250, 200, 150, 0.8) -20%, rgba(150,200,250, 0.9));
   z-index: 1;
 }
 
+.sticky-top-primary {
+  padding-top: calc( env(safe-area-inset-top) + 0.4rem );
+}
+
+.sticky-top-secondary {
+  padding-top: calc( env(safe-area-inset-top) + 0.4rem );
+}
+
 #progressTooltip {
-  height: 0.5em;
+  height: 0.6rem;
   border-radius: 1rem;
 }
 
@@ -64,7 +78,7 @@ h1 {
 
 /* Content */
 .tab-content {
-  padding: 0 env(safe-area-inset-right) calc(env(safe-area-inset-bottom) + 3rem) env(safe-area-inset-left);
+  // padding: 0 env(safe-area-inset-right) calc(env(safe-area-inset-bottom) + 3rem) env(safe-area-inset-left);
 }
 /* Background (after tab-content) */
 .background { /* Sticky background picture */
@@ -89,6 +103,7 @@ h1 {
 
 #form-liste {
   padding-top: 0.2rem;
+  padding-bottom: calc( env(safe-area-inset-bottom) + 0.8rem );
 }
 
 .numero {
@@ -108,13 +123,26 @@ h1 {
 
 /* Big screens */
 @media (min-width: 768px) {
+  h1 { font-size: 2rem; } /*1rem = 16px*/
+  #progressTooltip { height: 0.8rem; }
+  #nav-gestion { font-size: 1rem; }
+  #nav-configuration { font-size: 1rem; }
+  #form-liste { font-size: 1.1rem; }
+  input[type=checkbox] {
+    transform: scale(1.2);
+    margin-top: 0.5rem;
+  }
+}
+
+/* Very Big screens */
+@media (min-width: 992px) {
   h1 { font-size: 2.5rem; } /*1rem = 16px*/
   #progressTooltip { height: 1rem; }
   #nav-gestion { font-size: 1.5rem; }
   #nav-configuration { font-size: 1.5rem; }
   #form-liste { font-size: 1.2rem; }
   input[type=checkbox] {
-    transform: scale(1.5);
-    margin-top: 0.5rem;
+    transform: scale(1.4);
+    margin-top: 0.55rem;
   }
 }
