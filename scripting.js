@@ -166,9 +166,9 @@ function addEvents() {
 
   $('#backgroundPicture').on('change',function(){
     if($('#backgroundPicture:checked').length == 0)
-    $('.background').hide();
+    $('.background').fadeOut();
     else
-    $('.background').show();
+    $('.background').fadeIn();
   });
 
   // Filtering
@@ -191,9 +191,9 @@ function addEvents() {
       
       // Showing or Hiding the Back-to-list button
       if( $( this ).children("span").attr("id") !== "nav-liste" ) {
-        $( '#nav-liste' ).show();
+        $( '#nav-liste' ).fadeIn();
       } else {
-        $( '#nav-liste' ).hide();
+        $( '#nav-liste' ).fadeOut();
       }
     }
   });
