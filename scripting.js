@@ -189,7 +189,12 @@ function addEvents() {
       $( this ).addClass("active");
       $( tabToShow ).show();
       
-      console.log( $( this ) );
+      // Showing or Hiding the Back-to-list button
+      if( $( this ).children("span").id !== "nav-liste" ) {
+        $( '#nav-liste' ).show();
+      } else {
+        $( '#nav-liste' ).hide();
+      }
     }
   });
 }
@@ -205,6 +210,7 @@ function updateProgressBar() {
 // Hide the inactive tabs when document is ready
 // TODO Get the #anchor from the url
 function hideInitialContent() {
+  $( '#nav-liste' ).hide();
   $( '#gestion' ).hide();
   $( '#configuration' ).hide();
 }
