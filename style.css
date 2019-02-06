@@ -19,18 +19,17 @@ h1 {
 
 /* Sticky top */
 .sticky-top {
-  padding-top: calc( env(safe-area-inset-top) + 0.4rem );
+  padding-top: calc( env(safe-area-inset-top) + 0.6rem );
   padding-bottom: 0.5rem;
   background-image: linear-gradient(rgba(250, 200, 150, 0.8) -20%, rgba(150,200,250, 0.9));
   z-index: 1;
 }
 
 .sticky-top-primary {
-  // padding-top: calc( env(safe-area-inset-top) + 0.4rem );
+  
 }
 
 .sticky-top-secondary {
-  // padding-top: calc( env(safe-area-inset-top) + 0.4rem );
   padding-left: 3rem;
 }
 
@@ -52,7 +51,7 @@ h1 {
   font-size: 1.2rem;
   text-align: right;
   position: fixed;
-  top: calc( env(safe-area-inset-top) + 0.4rem );
+  top: calc( env(safe-area-inset-top) + 0.6rem );
   left: calc( env(safe-area-inset-left) + 1rem );
   padding: 0;
 }
