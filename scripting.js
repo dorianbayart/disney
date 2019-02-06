@@ -182,12 +182,12 @@ function addEvents() {
       // Hiding the active tab
       var tabToHide =  $( '.nav .active' ).children("span").attr("href");
       $( '.nav .active' ).removeClass("active");
-      $( tabToHide ).hide();
+      $( tabToHide ).fadeOut();
 
       // Showing the clicked tab
       var tabToShow = $( this ).children("span").attr("href");
       $( this ).addClass("active");
-      $( tabToShow ).show();
+      $( tabToShow ).fadeIn();
       
       // Showing or Hiding the Back-to-list button
       if( $( this ).children("span").attr("id") !== "nav-liste" ) {
