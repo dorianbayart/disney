@@ -188,6 +188,8 @@ function addEvents() {
       var tabToShow = $( this ).children("span").attr("href");
       $( this ).addClass("active");
       $( tabToShow ).show();
+      
+      console.log( $( this ) );
     }
   });
 }
