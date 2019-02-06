@@ -26,11 +26,12 @@ h1 {
 }
 
 .sticky-top-primary {
-  padding-top: calc( env(safe-area-inset-top) + 0.4rem );
+  // padding-top: calc( env(safe-area-inset-top) + 0.4rem );
 }
 
 .sticky-top-secondary {
-  padding-top: calc( env(safe-area-inset-top) + 0.4rem );
+  // padding-top: calc( env(safe-area-inset-top) + 0.4rem );
+  padding-left: 3rem;
 }
 
 #progressTooltip {
@@ -46,6 +47,14 @@ h1 {
   bottom: 0;
   width: 100%;
   z-index: 2;
+}
+#nav-liste {
+  font-size: 1.2rem;
+  text-align: right;
+  position: fixed;
+  top: calc( env(safe-area-inset-top) + 0.4rem );
+  left: calc( env(safe-area-inset-left) + 1rem );
+  padding: 0;
 }
 #nav-gestion {
   position: absolute;
@@ -125,6 +134,7 @@ h1 {
 @media (min-width: 768px) {
   h1 { font-size: 2rem; } /*1rem = 16px*/
   #progressTooltip { height: 0.8rem; }
+  #nav-liste { font-size: 1.5rem; }
   #nav-gestion { font-size: 1rem; }
   #nav-configuration { font-size: 1rem; }
   #form-liste { font-size: 1.1rem; }
@@ -138,6 +148,7 @@ h1 {
 @media (min-width: 992px) {
   h1 { font-size: 2.5rem; } /*1rem = 16px*/
   #progressTooltip { height: 1rem; }
+  #nav-liste { font-size: 2rem; }
   #nav-gestion { font-size: 1.5rem; }
   #nav-configuration { font-size: 1.5rem; }
   #form-liste { font-size: 1.2rem; }
