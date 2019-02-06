@@ -60,13 +60,12 @@ h1 {
   bottom: 1em;
   right: 1em;
   border-radius: 5em;
-  border: 2px solid;
+  border: gainsboro 1px solid;
   padding: 1rem;
-  border-style: outset;
-  background-color: rgb(150, 200, 250, 0.8);
+  background-color: rgb(150, 200, 250, 0.9);
 }
 #nav-gestion:hover {
-  border-style: inset;
+  background-color: rgb(150, 200, 250);
 }
 #nav-configuration {
   font-size: 1.2rem;
