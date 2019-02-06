@@ -69,7 +69,7 @@ h1 {
   border-style: inset;
 }
 #nav-configuration {
-  font-size: 1.1em;
+  font-size: 1.2rem;
   text-align: right;
   position: fixed;
   top: calc( env(safe-area-inset-top) + 0.6rem );
